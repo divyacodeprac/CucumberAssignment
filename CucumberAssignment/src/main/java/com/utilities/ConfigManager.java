@@ -11,7 +11,15 @@ public class ConfigManager {
 	public static Properties getconfigReader()  {
 		try {
 			 prop= new Properties();
-			FileInputStream fileInput = new FileInputStream(new File(".//CucumberAssignment//src//test/resources//config//configuration.properties"));
+			 String filename = "src\\test\\resources\\config\\configuration.properties";
+		        String workingDirectory = System.getProperty("user.dir");
+		         System.out.println("Working "+workingDirectory);   
+		       String absoluteFilePath = "";
+		            
+		        absoluteFilePath = workingDirectory + File.separator + filename;
+
+		        System.out.println("Final filepath : " + absoluteFilePath);
+			FileInputStream fileInput = new FileInputStream(new File(absoluteFilePath));
 			prop.load(fileInput);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
